@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu22p58mperby"]
+
+[ext_resource type="Script" uid="uid://2dknmdf1mx4" path="res://scripts/menu/ResizerToScreenRes.cs" id="1_a6m44"]
+[ext_resource type="Script" uid="uid://t1q4tj62kt1i" path="res://scripts/menu/StartGameButton.cs" id="2_7re23"]
+
+[node name="Menu" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-66.0]
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 651.0
+script = ExtResource("1_a6m44")
+
+[node name="StartGameButton" type="Button" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -24.5
+offset_right = 56.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "START GAME"
+script = ExtResource("2_7re23")

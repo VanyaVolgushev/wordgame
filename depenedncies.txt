@@ -1,0 +1,1 @@
+Dialogue Manager 3 from Godot AssetLib

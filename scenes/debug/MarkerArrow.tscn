@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgxe2rktqe3rv"]
+
+[ext_resource type="Script" uid="uid://b6gb2pld5sa5g" path="res://scripts/debug/DebugGismo.cs" id="1_gc831"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wjbwg"]
+top_radius = 0.0
+
+[node name="MarkerArrow" type="Node3D"]
+script = ExtResource("1_gc831")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.25, -4.37114e-08, 9.55339e-16, 0, -2.18557e-08, -0.25, 2.18557e-08, -0.5, 1.09278e-08, 0, 0, -0.5)
+mesh = SubResource("CylinderMesh_wjbwg")
