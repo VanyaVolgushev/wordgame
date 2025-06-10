@@ -12,6 +12,7 @@ albedo_color = Color(1, 0.188235, 0.109804, 1)
 material = SubResource("StandardMaterial3D_ok4up")
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HorizontalDirAxis", "VerticalDirAxis")]
+collision_layer = 3
 script = ExtResource("1_b7tqf")
 HorizontalDirAxis = NodePath("LinearMount/HorizontalDirAxis")
 VerticalDirAxis = NodePath("LinearMount/HorizontalDirAxis/VerticalDirAxis")
@@ -35,5 +36,6 @@ TargetNode = NodePath("../LinearMountTarget")
 current = true
 fov = 90.0
 
-[node name="LinearMountTarget" type="Node3D" parent="."]
+[node name="LinearMountTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669626, 0)
+gizmo_extents = 1.06

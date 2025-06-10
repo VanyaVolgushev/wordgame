@@ -15,9 +15,9 @@ public partial class Controller : CharacterBody3D
     {
 		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
- 	public override void _Input(InputEvent @event)
-    {
-		if(@event is InputEventMouseMotion)
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventMouseMotion)
 		{
 			InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
 			VerticalDirAxis.RotateX(-mouseEvent.Relative.Y * Sensitivity);

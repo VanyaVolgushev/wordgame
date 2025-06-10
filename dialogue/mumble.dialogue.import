@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bt3hmteaa16n4"
+path="res://.godot/imported/mumble.dialogue-a44bd0d26d49304cafecb338f2a4f54c.tres"
+
+[deps]
+
+source_file="res://dialogue/mumble.dialogue"
+dest_files=["res://.godot/imported/mumble.dialogue-a44bd0d26d49304cafecb338f2a4f54c.tres"]
+
+[params]
+
+defaults=true

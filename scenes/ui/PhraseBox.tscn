@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnx2o3xiny0hw"]
+
+[ext_resource type="Script" uid="uid://chmgcwcjyr47n" path="res://scripts/ui/PhraseBox.gd" id="1_mhxwr"]
+[ext_resource type="PackedScene" uid="uid://bkaw1w6nyqr8p" path="res://scenes/prefabs/VoiceAudioStreamPlayer.tscn" id="2_ujkor"]
+
+[node name="PhraseBox" type="PanelContainer" node_paths=PackedStringArray("text_label", "voice_stream")]
+script = ExtResource("1_mhxwr")
+text_label = NodePath("Panel/Label")
+voice_stream = NodePath("VoiceAudioStreamPlayer")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -24.0
+offset_right = 202.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ". . ."
+autowrap_mode = 2
+
+[node name="VoiceAudioStreamPlayer" parent="." instance=ExtResource("2_ujkor")]

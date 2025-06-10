@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkaw1w6nyqr8p"]
+
+[ext_resource type="AudioStream" uid="uid://ceh846mqjhp2" path="res://assets/sound/voice_generator/v1.ogg" id="1_rs01j"]
+[ext_resource type="Script" uid="uid://cxu7f7jek5xxh" path="res://scripts/voice_generator/voice_audio_stream_player.gd" id="2_leh5s"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rs01j"]
+streams_count = 1
+stream_0/stream = ExtResource("1_rs01j")
+
+[node name="VoiceAudioStreamPlayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_rs01j")
+script = ExtResource("2_leh5s")
+metadata/_custom_type_script = "uid://cxu7f7jek5xxh"

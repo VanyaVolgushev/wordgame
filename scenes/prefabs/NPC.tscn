@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccvayn1ni3nkk"]
+[gd_scene load_steps=8 format=3 uid="uid://ccvayn1ni3nkk"]
+
+[ext_resource type="Script" uid="uid://cmhyj44tdqu6l" path="res://scripts/npc/NPC.gd" id="1_jxwgk"]
+[ext_resource type="Script" uid="uid://b3kuno8ogdrw" path="res://scripts/npc/NPCDialogue.gd" id="2_4oi4x"]
+[ext_resource type="Resource" uid="uid://bt3hmteaa16n4" path="res://dialogue/mumble.dialogue" id="3_gcb1i"]
+[ext_resource type="PackedScene" uid="uid://cnx2o3xiny0hw" path="res://scenes/ui/PhraseBox.tscn" id="4_1axmh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ts4xn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kqh0g"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_4oi4x"]
+radius = 2.44889
+
 [node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_jxwgk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ts4xn")
@@ -12,3 +21,18 @@ shape = SubResource("CapsuleShape3D_ts4xn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("CapsuleMesh_kqh0g")
 skeleton = NodePath("../..")
+
+[node name="PlayerFinder" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerFinder"]
+shape = SubResource("SphereShape3D_4oi4x")
+
+[node name="NPCDialogue" type="Node" parent="." node_paths=PackedStringArray("phrase_box_target")]
+script = ExtResource("2_4oi4x")
+dialogue_resource = ExtResource("3_gcb1i")
+phrase_box_scene = ExtResource("4_1axmh")
+phrase_box_target = NodePath("..")
+
+[connection signal="body_entered" from="PlayerFinder" to="NPCDialogue" method="on_player_finder_body_entered"]
