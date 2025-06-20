@@ -16,7 +16,7 @@ public partial class Debugger : Node
         Label = ((PackedScene)GD.Load("res://scenes/debug/DebugLabel.tscn")).Instantiate() as RichTextLabel;
         AddChild(Label);
         ArrowMarkerScene = (PackedScene)GD.Load("res://scenes/debug/MarkerArrow.tscn");
-		SphereMarkerScene = (PackedScene)GD.Load("res://scenes/debug/MarkerSphere.tscn");
+        SphereMarkerScene = (PackedScene)GD.Load("res://scenes/debug/MarkerSphere.tscn");
     }
     public override void _Process(double delta)
     {

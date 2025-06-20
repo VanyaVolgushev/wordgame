@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://baudcv2tgh4cl"
+path="res://.godot/imported/philosophy.dialogue-ca038369d41a75061151dc4b8f65b750.tres"
+
+[deps]
+
+source_file="res://dialogue/philosophy.dialogue"
+dest_files=["res://.godot/imported/philosophy.dialogue-ca038369d41a75061151dc4b8f65b750.tres"]
+
+[params]
+
+defaults=true

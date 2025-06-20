@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://co1nlftp5631v"
+path="res://.godot/imported/conputer.dialogue-02e07ff0fb9c547dddeee490147f6f97.tres"
+
+[deps]
+
+source_file="res://dialogue/conputer.dialogue"
+dest_files=["res://.godot/imported/conputer.dialogue-02e07ff0fb9c547dddeee490147f6f97.tres"]
+
+[params]
+
+defaults=true

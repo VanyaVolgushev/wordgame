@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 Debugger="*res://scripts/debug/Debugger.cs"
 DialogueManagerAddon="*res://addons/dialogue_manager/dialogue_manager.gd"
-UIManager="*res://scripts/managers/UIManager.gd"
 
 [dialogue_manager]
 
@@ -32,6 +31,12 @@ project/assembly_name="wordgame"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+"Phrase Boxes"=""
+Player=""
+UI=""
 
 [input]
 
@@ -63,7 +68,7 @@ jump={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/mumble.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/mumble.dialogue", "res://dialogue/philosophy.dialogue", "res://dialogue/beauty.dialogue", "res://dialogue/conputer.dialogue")
 
 [layer_names]
 

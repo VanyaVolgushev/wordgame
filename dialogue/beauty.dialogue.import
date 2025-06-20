@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dh7perde8kvpf"
+path="res://.godot/imported/beauty.dialogue-53459733467b7d771eb862b9f2fe7ec6.tres"
+
+[deps]
+
+source_file="res://dialogue/beauty.dialogue"
+dest_files=["res://.godot/imported/beauty.dialogue-53459733467b7d771eb862b9f2fe7ec6.tres"]
+
+[params]
+
+defaults=true

@@ -30,7 +30,7 @@ transform = Transform3D(0.553551, 0.591033, -0.586737, 0, 0.704523, 0.709681, 0.
 light_angular_distance = 4.55
 
 [node name="NPC" parent="." instance=ExtResource("5_csj8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36672, 1, -8.60767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47729, 1, -4.54536)
 
 [node name="NPC2" parent="." instance=ExtResource("5_csj8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53865, 1, -7.27104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9003, 1, -2.66707)

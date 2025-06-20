@@ -1,8 +1,9 @@
 using Godot;
 using System;
 
-public partial class Controller : CharacterBody3D
+public partial class FPSController : Node
 {
+	[Export] public CharacterBody3D MyCharacterBody {get; set;}
 	[Export] public Node3D HorizontalDirAxis {get; set;}
 	[Export] public Node3D VerticalDirAxis {get; set;}
 	[Export] public float Speed = 7.0f;
@@ -26,14 +27,14 @@ public partial class Controller : CharacterBody3D
     }
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector3 velocity = Velocity;
+		Vector3 velocity = MyCharacterBody.Velocity;
 
 		// Add the gravity.
-		if (!IsOnFloor())
+		if (!MyCharacterBody.IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if (Input.IsActionJustPressed("ui_accept") && MyCharacterBody.IsOnFloor())
 			velocity.Y = JumpVelocity;
 
 		// Get the input direction and handle the movement/deceleration.
@@ -47,11 +48,11 @@ public partial class Controller : CharacterBody3D
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			velocity.X = Mathf.MoveToward(MyCharacterBody.Velocity.X, 0, Speed);
+			velocity.Z = Mathf.MoveToward(MyCharacterBody.Velocity.Z, 0, Speed);
 		}
 
-		Velocity = velocity;
-		MoveAndSlide();
+		MyCharacterBody.Velocity = velocity;
+		MyCharacterBody.MoveAndSlide();
 	}
 }

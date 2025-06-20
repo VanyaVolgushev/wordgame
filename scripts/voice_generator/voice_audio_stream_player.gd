@@ -107,7 +107,7 @@ func _process(delta: float) -> void:
 					push_error("Couldn't find stream for letter " + saying_word.word_parts[0])
 			saying_word.word_parts.remove_at(0)
 			saying_word.word_parts_positions.remove_at(0)
-			pitch_scale = main_pitch_scale * (question_pitch_scale if saying_word.is_exclamation or saying_word.is_question else 1)
+			pitch_scale = main_pitch_scale * (question_pitch_scale if saying_word.is_exclamation or saying_word.is_question else 1.0)
 			
 			play()
 
@@ -183,15 +183,15 @@ func set_generator_sub_stream() -> void:
 func refresh_generator_data() -> void:
 	if source_type != SOURCE_TYPE.GENERATOR:
 		return
-	stream_generator.mix_rate = AudioServer.get_mix_rate()
-	var buffer := PackedByteArray()
+	stream_generator.mix_rate = int(AudioServer.get_mix_rate())
+	# var buffer := PackedByteArray()
 	stream_generator.format = AudioStreamWAV.FORMAT_16_BITS
 	var samples_per_second := stream_generator.mix_rate
 	
 	var length := int(samples_per_second * generator_length)
 	var stream_buffer := StreamPeerBuffer.new()
 	
-	var noise := 0.0
+	# var noise := 0.0
 	var array_buffer := PackedFloat32Array()
 	for i in range(0, length):
 		var value: float
