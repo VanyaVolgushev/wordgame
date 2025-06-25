@@ -13,6 +13,7 @@ config_version=5
 config/name="wordgame"
 run/main_scene="uid://bu22p58mperby"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -32,12 +33,19 @@ project/assembly_name="wordgame"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://scripts/": "blue"
+}
+
 [global_group]
 
 "Phrase Boxes"=""
 Player=""
 UI=""
-Interactor=""
+NPCSpeakers=""
+PhraseResponder=""
 
 [input]
 
