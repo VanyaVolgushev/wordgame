@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djfmtle3r6t42" path="res://scripts/player/LinearMountInterpolator.cs" id="2_061gj"]
 [ext_resource type="Script" uid="uid://ccek8fltt2a10" path="res://scripts/player/FPSController.cs" id="2_ok4up"]
-[ext_resource type="Script" uid="uid://rwd750f2dpcv" path="res://scenes/prefabs/interactor.gd" id="3_8anb8"]
+[ext_resource type="Script" uid="uid://rwd750f2dpcv" path="res://scripts/player/Interactor.gd" id="3_8anb8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ts4xn"]
 
@@ -44,6 +44,5 @@ MyCharacterBody = NodePath("..")
 HorizontalDirAxis = NodePath("../LinearMount/HorizontalDirAxis")
 VerticalDirAxis = NodePath("../LinearMount/HorizontalDirAxis/VerticalDirAxis")
 
-[node name="Interactor" type="Node" parent="." node_paths=PackedStringArray("camera")]
+[node name="Interactor" type="Node" parent="." groups=["Interactor"]]
 script = ExtResource("3_8anb8")
-camera = NodePath("../LinearMount/HorizontalDirAxis/VerticalDirAxis/Camera3D")
