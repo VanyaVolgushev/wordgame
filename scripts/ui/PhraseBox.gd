@@ -19,6 +19,7 @@ func _process(_delta):
 	if _timer:
 		_time_bar.custom_minimum_size.x = _timer.time_left / _timer.wait_time * _horizontal_size_px
 
+# Could be replaced with a constructor override
 func init(new_target: Node3D, text: String, response_time: float) -> void:
 	# Say text with my voice stream and connect to its signals.
 	self._text_label.text = text
@@ -26,7 +27,6 @@ func init(new_target: Node3D, text: String, response_time: float) -> void:
 	_voice_stream.connect("saying_characters", func(pos: int) -> void: self._text_label.visible_characters = pos)
 	_voice_stream.connect("finished_saying", func() -> void: self._on_finished_saying(response_time))
 	_voice_stream.say(text)
-
 
 func _on_finished_saying(response_time: float) -> void:
 	# Create response timer and connect to its timeout signal.

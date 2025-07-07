@@ -1,3 +1,2 @@
-The player has a set of words that can be dragged around and a button "say" that prematurely triggers a response.
 Responses are graded on several parameters, which are either pulled from a txt file or the game asks you to grade it yourself (then saves to said txt file)
 Add three NPCs, male female and robot that have internal mood parameters that are affected by your responses, dialogue branches are chosen in accordance to mood.

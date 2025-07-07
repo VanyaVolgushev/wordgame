@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Debugger="*res://scripts/debug/Debugger.cs"
 DialogueManagerAddon="*res://addons/dialogue_manager/dialogue_manager.gd"
+LexiconManager="*res://scripts/player/LexiconManager.gd"
 
 [dialogue_manager]
 
