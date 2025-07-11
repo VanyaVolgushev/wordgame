@@ -3,22 +3,37 @@ class_name WordBox
 
 @export var _my_rich_text_label: RichTextLabel
 
-var _my_lexicon_entry: LexiconEntry
+var _my_word: String
 var _hovered: bool = false
 var _grabbed: bool = false
+
+var _response_area: Rect2
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
-func init_with(entry: LexiconEntry) -> void:
-	_my_lexicon_entry = entry
-	_my_rich_text_label.text = entry.string
+func init_with(word: String, response_area: Rect2) -> void:
+	_my_word = word
+	_my_rich_text_label.text = word
+	_response_area = response_area
+
+func in_response_area() -> bool:
+	var left_upper_inside = _response_area.has_point(position)
+	var left_lower_inside = _response_area.has_point(position + Vector2(0, size.y))
+	var right_upper_inside = _response_area.has_point(position + Vector2(size.x, 0))
+	var right_lower_inside = _response_area.has_point(position + size)
+	return left_upper_inside or left_lower_inside or right_upper_inside or right_lower_inside
+
+func get_word() -> String:
+	return _my_word
 
 func _process(_delta):
 	# Change the appearance
 	if _hovered:
 		self.modulate = Color(1, 1, 0)
+	elif in_response_area():
+		self.modulate = Color(0, 1, 0)
 	else:
 		self.modulate = Color(1, 1, 1)
 

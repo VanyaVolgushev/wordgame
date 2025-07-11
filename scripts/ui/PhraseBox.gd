@@ -39,7 +39,6 @@ func _on_finished_saying(response_time: float) -> void:
 
 func _on_timeout() -> void:
 	emit_signal("timeout")
-	self.queue_free()
 
 func covers_center_of_screen() -> bool:
 	# Calculate the viewport’s center point

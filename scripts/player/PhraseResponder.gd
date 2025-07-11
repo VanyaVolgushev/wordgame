@@ -10,10 +10,11 @@ signal response_ended(phrase_box: PhraseBox)
 @export var _fps_controller: Node
 
 var _response_target_box: PhraseBox = null
+var _response_ui: ResponseUI = null
+var ui: UIManager
 
 func _ready():
-	var UI = get_tree().get_nodes_in_group("UI")[0] as UIManager
-	UI.say_button_pressed.connect(_on_say_button_pressed)
+	ui = get_tree().get_nodes_in_group("UI")[0] as UIManager
 
 func _process(_delta):
 	if(_response_target_box == null  && _get_phrasebox_in_center()):
@@ -32,19 +33,18 @@ func _unhandled_input(event):
 		var phrasebox = _get_phrasebox_in_center()
 		if _response_target_box == null && phrasebox:
 			_begin_response(phrasebox)
-			phrasebox.timeout.connect(_end_response)
-
-func _on_say_button_pressed():
-	if _response_target_box:
-		_response_target_box.queue_free()
-		_end_response()
 
 func _begin_response(phrase_box: PhraseBox) -> void:
-	response_began.emit(phrase_box)
+	phrase_box.timeout.connect(_end_response)
+	_response_ui = ui.create_response_ui()
+	_response_ui.say_button_pressed.connect(_end_response)
 	_fps_controller.OnBeginResponse()
+	response_began.emit(phrase_box)
 	_response_target_box = phrase_box
 
 func _end_response() -> void:
+	var response_sentence = await _response_ui.finalize_response()
 	response_ended.emit(_response_target_box)
 	_fps_controller.OnEndResponse()
+	_response_target_box.queue_free()
 	_response_target_box = null

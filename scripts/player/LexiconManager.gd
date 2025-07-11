@@ -1,24 +1,29 @@
 extends Node
 
-var _lexicon: Array[LexiconEntry] = []
-var _initial_lexicon: Array[LexiconEntry] = [
-    LexiconEntry.new("hello"),
-    LexiconEntry.new("hi"),
-    LexiconEntry.new("goodbye"),
-    LexiconEntry.new("thanks"),
-    LexiconEntry.new("you"),
-]
+var _lexicon: Array[String] = []
+var _initial_lexicon: Array[String] = [
+        "hello",
+	    "goodbye",
+	    "friend",
+	    "fuck",
+	    "thank",
+	    "you",
+	    "I",
+	    "please"
+    ]
 
 func _ready() -> void:
     # Temporary initialization of the lexicon
-    for entry in _initial_lexicon:
-        add_entry(entry)
+    for word in _initial_lexicon:
+        learn_word(word)
 
-func get_lexicon() -> Array[LexiconEntry]:
-    return _lexicon
+func get_lexicon() -> Array[String]:
+    return _lexicon.duplicate()
 
-func add_entry(entry: LexiconEntry) -> void:
-    if entry not in _lexicon:
-        _lexicon.append(entry)
+func learn_word(word: String) -> void:
+    if word in _lexicon:
+        printerr("Entry already exists in lexicon: ", word)
+    elif word not in ExistingWords.general:
+        printerr("Word \"", word, "\" is not an existing word")
     else:
-        print("Entry already exists in lexicon: ", entry.string)
+        _lexicon.append(word)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpe55ig1pkgc3"]
+
+[ext_resource type="Script" uid="uid://dhkx0f384nuk8" path="res://scripts/ui/UserEvaluationPopup.gd" id="1_rumm3"]
+[ext_resource type="PackedScene" uid="uid://c5tqhoq1tmwis" path="res://scenes/ui/NamedIntSelector.tscn" id="2_lm66x"]
+
+[node name="UserEvaluationPopup" type="PanelContainer" node_paths=PackedStringArray("_accept_button", "_hbox_container", "_sentence_label")]
+process_mode = 3
+self_modulate = Color(0, 0, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -275.0
+offset_right = 302.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rumm3")
+_accept_button = NodePath("HBoxContainer2/EvaluateButton")
+_hbox_container = NodePath("HBoxContainer2/HBoxContainer")
+_named_int_selector_res = ExtResource("2_lm66x")
+_sentence_label = NodePath("HBoxContainer2/SentenceLabel")
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SentenceLabel" type="RichTextLabel" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(33.61, 52.99)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=gray]The evaluation for your response [color=white]\"Hello friend\"[color=gray] wasn't preloaded. Manually evaluate your sentence below:"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="EvaluateButton" type="Button" parent="HBoxContainer2"]
+modulate = Color(0.568973, 0.568973, 0.568973, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 49
+text = "EVALUATE"
